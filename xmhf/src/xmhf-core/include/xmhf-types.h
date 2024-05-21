@@ -126,6 +126,10 @@ typedef struct {
     /* Set by bootloader, equal to (actual address - compile address). */
     hva_t   XtVmmRelocationOffset;
 #endif /* __XMHF_PIE_RUNTIME__ */
+#ifdef __XMHF_RUNTIME_BSS_ST__
+    hva_t   XtVmmRuntimeUpperBegin;
+    hva_t   XtVmmRuntimeUpperEnd;
+#endif /* __XMHF_RUNTIME_BSS_ST__ */
     hva_t   XtVmmEntryPoint;
 #ifdef __XMHF_AMD64__
     hva_t   XtVmmPml4Base;

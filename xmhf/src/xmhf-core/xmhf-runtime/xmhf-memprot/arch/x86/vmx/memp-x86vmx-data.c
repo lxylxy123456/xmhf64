@@ -60,6 +60,7 @@ u8 g_vmx_ept_pml4_table_buffers[PAGE_SIZE_4K * P4L_NPLM4T * MAX_VCPU_ENTRIES] __
 //memprot
 u8 g_vmx_ept_pdp_table_buffers[PAGE_SIZE_4K * P4L_NPDPT * MAX_VCPU_ENTRIES] __attribute__((aligned(PAGE_SIZE_4K)));
 
+#ifndef __XMHF_RUNTIME_BSS_ST__
 //VMX EPT PD table buffers
 //memprot
 u8 g_vmx_ept_pd_table_buffers[PAGE_SIZE_4K * P4L_NPDT * MAX_VCPU_ENTRIES] __attribute__((aligned(PAGE_SIZE_4K)));
@@ -67,3 +68,4 @@ u8 g_vmx_ept_pd_table_buffers[PAGE_SIZE_4K * P4L_NPDT * MAX_VCPU_ENTRIES] __attr
 //VMX EPT P table buffers
 //memprot
 u8 g_vmx_ept_p_table_buffers[PAGE_SIZE_4K * P4L_NPT * MAX_VCPU_ENTRIES] __attribute__((aligned(PAGE_SIZE_4K)));
+#endif /* !__XMHF_RUNTIME_BSS_ST__ */

@@ -387,11 +387,13 @@ extern u8 g_vmx_ept_pml4_table_buffers[] __attribute__((aligned(PAGE_SIZE_4K)));
 //VMX EPT PDP table buffers
 extern u8 g_vmx_ept_pdp_table_buffers[] __attribute__((aligned(PAGE_SIZE_4K)));
 
+#ifndef __XMHF_RUNTIME_BSS_ST__
 //VMX EPT PD table buffers
 extern u8 g_vmx_ept_pd_table_buffers[] __attribute__((aligned(PAGE_SIZE_4K)));
 
 //VMX EPT P table buffers
 extern u8 g_vmx_ept_p_table_buffers[] __attribute__((aligned(PAGE_SIZE_4K)));
+#endif /* !__XMHF_RUNTIME_BSS_ST__ */
 
 
 //----------------------------------------------------------------------

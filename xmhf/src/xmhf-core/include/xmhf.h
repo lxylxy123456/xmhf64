@@ -129,4 +129,24 @@ extern RPB *rpb;
 #include <xmhf-nested.h>      	//XMHF nested virtualization component
 
 
+#ifndef __ASSEMBLY__
+#ifdef __XMHF_RUNTIME_BSS_ST__
+
+typedef struct rt_bss_upper {
+	u8 _g_vmx_ept_pd_table_buffers[PAGE_SIZE_4K * P4L_NPDT * MAX_VCPU_ENTRIES];
+	u8 _g_vmx_ept_p_table_buffers[PAGE_SIZE_4K * P4L_NPT * MAX_VCPU_ENTRIES];
+} rt_bss_upper_t;
+
+// rt_bss_upper_t g_rt_bss_upper __attribute__((aligned(PAGE_SIZE_4K)));
+
+#define g_vmx_ept_pd_table_buffers (g_rt_bss_upper->_g_vmx_ept_pd_table_buffers)
+#define g_vmx_ept_p_table_buffers (g_rt_bss_upper->_g_vmx_ept_p_table_buffers)
+
+// TODO: only valid in rt.
+extern rt_bss_upper_t *g_rt_bss_upper;
+
+#endif /* __XMHF_RUNTIME_BSS_ST__ */
+#endif /* !__ASSEMBLY__ */
+
+
 #endif /* __XMHF_H_ */

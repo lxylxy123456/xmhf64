@@ -232,6 +232,8 @@ CFLAGS += -D__XMHF_PIE_RUNTIME__
 else
 CFLAGS += -fno-pie -fno-pic
 endif
+# TODO: config option?
+CFLAGS += -D__XMHF_RUNTIME_BSS_ST__
 CFLAGS += -mno-red-zone
 
 
